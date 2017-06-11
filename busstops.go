@@ -1,26 +1,30 @@
 package datamall
 
 import (
-	"net/http"
-	"fmt"
 	"encoding/json"
+	"fmt"
+	"net/http"
 )
 
+// BusStop contains information about a bus stop
 type BusStop struct {
 	BusStopCode string
-	RoadName string
+	RoadName    string
 	Description string
-	Latitude float64
-	Longitude float64
+	Latitude    float64
+	Longitude   float64
 }
 
+// BusStops represents a response from the DataMall BusStops endpoint. A list of bus stops is contained in the Value
+// property.
 type BusStops struct {
-	OdataMetadata string `json:"odata.metadata"`
-	Value []BusStop `json:"value"`
+	OdataMetadata string    `json:"odata.metadata"`
+	Value         []BusStop `json:"value"`
 }
 
+// GetBusStops returns detailed information for all bus stops currently being serviced by buses.
 func (c APIClient) GetBusStops(offset int) (BusStops, error) {
-	req, err := http.NewRequest(http.MethodGet, c.Endpoint + "/BusStops", nil)
+	req, err := http.NewRequest(http.MethodGet, c.Endpoint+"/BusStops", nil)
 	if err != nil {
 		return BusStops{}, err
 	}
