@@ -14,7 +14,7 @@ Go library for consuming [LTA DataMall](https://www.mytransport.sg/content/mytra
 - [x] Bus Arrival
 - [ ] Bus Services
 - [ ] Bus Routes
-- [ ] Bus Stops
+- [x] Bus Stops
 - [ ] Taxi Availability
 ### Traffic related endpoints
 - [ ] Carpark Availability
