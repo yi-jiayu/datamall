@@ -13,7 +13,7 @@ Go library for consuming [LTA DataMall](https://www.mytransport.sg/content/mytra
 ### Public transport related endpoints
 - [x] Bus Arrival
 - [ ] Bus Services
-- [ ] Bus Routes
+- [x] Bus Routes
 - [x] Bus Stops
 - [ ] Taxi Availability
 ### Traffic related endpoints
