@@ -111,3 +111,23 @@ func TestAPIClient_GetBusArrival(t *testing.T) {
 		t.Fail()
 	}
 }
+
+func TestAPIClient_GetBusArrival_Error(t *testing.T) {
+	ts := httptest.NewServer(http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
+		w.WriteHeader(503)
+	}))
+	defer ts.Close()
+
+	client := APIClient{
+		Endpoint: ts.URL,
+		Client:   http.DefaultClient,
+	}
+
+	_, err := client.GetBusArrival("", "")
+	assert.Error(t, err)
+
+	expected := Error{
+		StatusCode: 503,
+	}
+	assert.Equal(t, expected, err)
+}

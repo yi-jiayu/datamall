@@ -60,6 +60,13 @@ func (c APIClient) GetBusArrival(busStopCode string, serviceNo string) (BusArriv
 	}
 	defer res.Body.Close()
 
+	if res.StatusCode >= 400 {
+		err := Error{
+			StatusCode: res.StatusCode,
+		}
+		return BusArrival{}, err
+	}
+
 	var busArrival BusArrival
 	err = json.NewDecoder(res.Body).Decode(&busArrival)
 	if err != nil {
