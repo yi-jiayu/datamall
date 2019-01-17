@@ -7,42 +7,38 @@ import (
 
 // ArrivingBus contains information about an incoming bus at a bus stop.
 type ArrivingBus struct {
+	OriginCode       string
+	DestinationCode  string
 	EstimatedArrival string
 	Latitude         string
 	Longitude        string
 	VisitNumber      string
 	Load             string
 	Feature          string
+	Type             string
 }
 
 // Service contains information about a bus service at a bus stop.
 type Service struct {
-	ServiceNo      string
-	Status         string
-	Operator       string
-	OriginatingID  string
-	TerminatingID  string
-	NextBus        ArrivingBus
-	SubsequentBus  ArrivingBus
-	SubsequentBus3 ArrivingBus
+	ServiceNo string
+	Operator  string
+	NextBus   ArrivingBus
+	NextBus2  ArrivingBus
+	NextBus3  ArrivingBus
 }
 
 // BusArrival contains information about incoming buses at a bus stop.
 type BusArrival struct {
 	OdataMetadata string `json:"odata.metadata"`
 	BusStopID     string
+	BusStopCode   string
 	Services      []Service
 }
 
-// GetBusArrivalOptions contains optional parameters for GetBusArrival.
-type GetBusArrivalOptions struct {
-	ServiceNo string
-	SST       bool
-}
-
-// GetBusArrival returns real-time bus arrival information at a bus stop from the LTA DataMall API.
-func (c APIClient) GetBusArrival(busStopID string, options *GetBusArrivalOptions) (BusArrival, error) {
-	req, err := http.NewRequest("GET", c.Endpoint+"/BusArrival", nil)
+// GetBusArrival returns real-time Bus Arrival information of Bus Services at a queried Bus Stop,
+// including Est. Arrival Time, Est. Current Location, Est. Current Load
+func (c APIClient) GetBusArrival(busStopCode string, serviceNo string) (BusArrival, error) {
+	req, err := http.NewRequest("GET", c.Endpoint+"/BusArrivalv2", nil)
 	if err != nil {
 		return BusArrival{}, err
 	}
@@ -50,16 +46,10 @@ func (c APIClient) GetBusArrival(busStopID string, options *GetBusArrivalOptions
 	req.Header.Set("AccountKey", c.AccountKey)
 
 	q := req.URL.Query()
-	q.Add("BusStopID", busStopID)
+	q.Add("BusStopCode", busStopCode)
 
-	if options != nil {
-		if serviceNo := options.ServiceNo; serviceNo != "" {
-			q.Add("ServiceNo", serviceNo)
-		}
-
-		if options.SST {
-			q.Add("SST", "True")
-		}
+	if serviceNo != "" {
+		q.Add("ServiceNo", serviceNo)
 	}
 
 	req.URL.RawQuery = q.Encode()
