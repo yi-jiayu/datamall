@@ -29,7 +29,7 @@ func TestAPIClient_GetBusStops(t *testing.T) {
 
 	actual := busStops
 	expected := BusStops{
-		OdataMetadata: "http://datamall2.mytransport.sg/ltaodataservice/$metadata#BusStops",
+		ODataMetadata: "http://datamall2.mytransport.sg/ltaodataservice/$metadata#BusStops",
 		Value: []BusStop{
 			{
 				BusStopCode: "01012",

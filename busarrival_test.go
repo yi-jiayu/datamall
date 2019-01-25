@@ -28,7 +28,7 @@ func TestAPIClient_GetBusArrival(t *testing.T) {
 	}
 
 	expected := BusArrival{
-		OdataMetadata: "http://datamall2.mytransport.sg/ltaodataservice/$metadata#BusArrivalv2/@Element",
+		ODataMetadata: "http://datamall2.mytransport.sg/ltaodataservice/$metadata#BusArrivalv2/@Element",
 		BusStopCode:   "96049",
 		Services: []Service{
 			{

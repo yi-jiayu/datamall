@@ -18,7 +18,9 @@ type BusStop struct {
 // BusStops represents a response from the DataMall BusStops endpoint. A list of bus stops is contained in the Value
 // property.
 type BusStops struct {
-	OdataMetadata string    `json:"odata.metadata"`
+	// Deprecated: Use ODataMetadata instead
+	OdataMetadata string
+	ODataMetadata string    `json:"odata.metadata"`
 	Value         []BusStop `json:"value"`
 }
 
