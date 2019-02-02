@@ -25,8 +25,6 @@ type BusRoute struct {
 // BusRoutes represents a response from the DataMall BusRoutes endpoint. An array of BusRoute is contained in the Value
 // property.
 type BusRoutes struct {
-	// Deprecated: Use ODataMetadata instead
-	OdataMetadata string
 	ODataMetadata string     `json:"odata.metadata"`
 	Value         []BusRoute `json:"value"`
 }

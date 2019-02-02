@@ -30,8 +30,6 @@ type Service struct {
 
 // BusArrival contains information about incoming buses at a bus stop.
 type BusArrival struct {
-	// Deprecated: Use ODataMetadata instead
-	OdataMetadata string
 	ODataMetadata string `json:"odata.metadata"`
 	BusStopID     string
 	BusStopCode   string
