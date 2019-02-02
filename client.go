@@ -4,10 +4,9 @@ import (
 	"net/http"
 )
 
-// The current LTA DataMall endpoint and version.
+// The current LTA DataMall endpoint
 const (
-	DataMallEndpoint = "http://datamall2.mytransport.sg/ltaodataservice"
-	DataMallVersion  = "3.7"
+	Endpoint = "http://datamall2.mytransport.sg/ltaodataservice"
 )
 
 // HTTPClient is an interface satisfied by *http.Client.
@@ -26,7 +25,7 @@ type APIClient struct {
 // Not recommended in production due to the lack of timeouts in http.DefaultClient.
 func NewDefaultClient(accountKey string) APIClient {
 	return APIClient{
-		Endpoint:   DataMallEndpoint,
+		Endpoint:   Endpoint,
 		AccountKey: accountKey,
 		Client:     http.DefaultClient,
 	}
@@ -35,7 +34,7 @@ func NewDefaultClient(accountKey string) APIClient {
 // NewClient creates a new LTA DataMall APIClient using accountKey and client.
 func NewClient(accountKey string, client *http.Client) APIClient {
 	return APIClient{
-		Endpoint:   DataMallEndpoint,
+		Endpoint:   Endpoint,
 		AccountKey: accountKey,
 		Client:     client,
 	}
