@@ -10,11 +10,16 @@ const (
 	DataMallVersion  = "3.7"
 )
 
+// HTTPClient is an interface satisfied by *http.Client.
+type HTTPClient interface {
+	Do(r *http.Request) (*http.Response, error)
+}
+
 // APIClient contains the AccountKey and a http.Client to use to make requests to the LTA DataMall API.
 type APIClient struct {
 	Endpoint   string
 	AccountKey string
-	Client     *http.Client
+	Client     HTTPClient
 }
 
 // NewDefaultClient creates a new LTA DataMall APIClient using accountKey and http.DefaultClient.
