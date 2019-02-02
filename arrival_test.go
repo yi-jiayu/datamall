@@ -4,9 +4,18 @@ import (
 	"fmt"
 	"reflect"
 	"testing"
+	"time"
 
 	"github.com/stretchr/testify/assert"
 )
+
+func mustParseRFC3339(s string) time.Time {
+	t, err := time.Parse(time.RFC3339, s)
+	if err != nil {
+		panic(err)
+	}
+	return t
+}
 
 func TestAPIClient_GetBusArrival(t *testing.T) {
 	client := APIClient{
@@ -109,10 +118,10 @@ func TestAPIClient_GetBusArrival(t *testing.T) {
 				NextBus: ArrivingBus{
 					OriginCode:       "99009",
 					DestinationCode:  "10589",
-					EstimatedArrival: "2017-08-02T15:38:49+08:00",
-					Latitude:         "1.3438965",
-					Longitude:        "103.96221783333333",
-					VisitNumber:      "1",
+					EstimatedArrival: mustParseRFC3339("2017-08-02T15:38:49+08:00"),
+					Latitude:         1.3438965,
+					Longitude:        103.96221783333333,
+					VisitNumber:      1,
 					Load:             "SEA",
 					Feature:          "WAB",
 					Type:             "DD",
@@ -120,10 +129,10 @@ func TestAPIClient_GetBusArrival(t *testing.T) {
 				NextBus2: ArrivingBus{
 					OriginCode:       "99009",
 					DestinationCode:  "10589",
-					EstimatedArrival: "2017-08-02T15:50:58+08:00",
-					Latitude:         "1.3739711666666667",
-					Longitude:        "103.97514966666667",
-					VisitNumber:      "1",
+					EstimatedArrival: mustParseRFC3339("2017-08-02T15:50:58+08:00"),
+					Latitude:         1.3739711666666667,
+					Longitude:        103.97514966666667,
+					VisitNumber:      1,
 					Load:             "SEA",
 					Feature:          "WAB",
 					Type:             "DD",
@@ -131,10 +140,10 @@ func TestAPIClient_GetBusArrival(t *testing.T) {
 				NextBus3: ArrivingBus{
 					OriginCode:       "99009",
 					DestinationCode:  "10589",
-					EstimatedArrival: "2017-08-02T15:57:50+08:00",
-					Latitude:         "0",
-					Longitude:        "0",
-					VisitNumber:      "1",
+					EstimatedArrival: mustParseRFC3339("2017-08-02T15:57:50+08:00"),
+					Latitude:         0,
+					Longitude:        0,
+					VisitNumber:      1,
 					Load:             "SEA",
 					Feature:          "WAB",
 					Type:             "DD",
@@ -145,10 +154,10 @@ func TestAPIClient_GetBusArrival(t *testing.T) {
 				NextBus: ArrivingBus{
 					OriginCode:       "54009",
 					DestinationCode:  "54009",
-					EstimatedArrival: "2017-08-02T15:40:56+08:00",
-					Latitude:         "1.3445355",
-					Longitude:        "103.968438",
-					VisitNumber:      "1",
+					EstimatedArrival: mustParseRFC3339("2017-08-02T15:40:56+08:00"),
+					Latitude:         1.3445355,
+					Longitude:        103.968438,
+					VisitNumber:      1,
 					Load:             "SDA",
 					Feature:          "WAB",
 					Type:             "SD",
@@ -156,10 +165,10 @@ func TestAPIClient_GetBusArrival(t *testing.T) {
 				NextBus2: ArrivingBus{
 					OriginCode:       "54009",
 					DestinationCode:  "54009",
-					EstimatedArrival: "2017-08-02T15:53:59+08:00",
-					Latitude:         "1.359649",
-					Longitude:        "103.99118333333334",
-					VisitNumber:      "1",
+					EstimatedArrival: mustParseRFC3339("2017-08-02T15:53:59+08:00"),
+					Latitude:         1.359649,
+					Longitude:        103.99118333333334,
+					VisitNumber:      1,
 					Load:             "SEA",
 					Feature:          "WAB",
 					Type:             "SD",
@@ -167,10 +176,10 @@ func TestAPIClient_GetBusArrival(t *testing.T) {
 				NextBus3: ArrivingBus{
 					OriginCode:       "54009",
 					DestinationCode:  "54009",
-					EstimatedArrival: "2017-08-02T16:06:00+08:00",
-					Latitude:         "1.341015",
-					Longitude:        "103.9712825",
-					VisitNumber:      "1",
+					EstimatedArrival: mustParseRFC3339("2017-08-02T16:06:00+08:00"),
+					Latitude:         1.341015,
+					Longitude:        103.9712825,
+					VisitNumber:      1,
 					Load:             "SEA",
 					Feature:          "WAB",
 					Type:             "SD",

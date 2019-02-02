@@ -3,16 +3,17 @@ package datamall
 import (
 	"encoding/json"
 	"net/http"
+	"time"
 )
 
 // ArrivingBus contains information about an incoming bus at a bus stop.
 type ArrivingBus struct {
 	OriginCode       string
 	DestinationCode  string
-	EstimatedArrival string
-	Latitude         string
-	Longitude        string
-	VisitNumber      string
+	EstimatedArrival time.Time
+	Latitude         float64 `json:",string"`
+	Longitude        float64 `json:",string"`
+	VisitNumber      int     `json:",string"`
 	Load             string
 	Feature          string
 	Type             string
