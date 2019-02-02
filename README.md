@@ -10,12 +10,21 @@ Go library for consuming [LTA DataMall](https://www.mytransport.sg/content/mytra
 `go get -u -v github.com/yi-jiayu/datamall`
 
 ## Status
+Current DataMall version: 4.8
+
+[DataMall API User Guide & Documentation](https://www.mytransport.sg/content/dam/datamall/datasets/LTA_DataMall_API_User_Guide.pdf)
+
 ### Public transport related endpoints
 - [x] Bus Arrival
 - [ ] Bus Services
 - [x] Bus Routes
 - [x] Bus Stops
+- [ ] Passenger volume by bus stops
+- [ ] Passenger volume by origin destination bus stops
+- [ ] Passenger volume by origin destination train stations
+- [ ] Passenger volume by train stations
 - [ ] Taxi Availability
+- [ ] Train service alerts
 ### Traffic related endpoints
 - [ ] Carpark Availability
 - [ ] ERP Rates
