@@ -333,7 +333,7 @@ func TestAPIClient_GetBusArrival(t *testing.T) {
 		{
 			Name:       "when datamall returns an error",
 			StatusCode: 503,
-			ExpectedError: Error{
+			ExpectedError: &Error{
 				StatusCode: 503,
 			},
 		},
