@@ -7,7 +7,7 @@
 Go library for consuming [LTA DataMall](https://www.mytransport.sg/content/mytransport/home/dataMall.html) APIs
 
 ## Installation
-`go get -u -v github.com/yi-jiayu/datamall/v2`
+`go get -u -v github.com/yi-jiayu/datamall/v3`
 
 ## Status
 Current DataMall version: 4.8
