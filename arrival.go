@@ -96,7 +96,7 @@ type BusArrival struct {
 // GetBusArrival returns real-time Bus Arrival information of Bus Services at a queried Bus Stop,
 // including Est. Arrival Time, Est. Current Location, Est. Current Load
 func (c APIClient) GetBusArrival(busStopCode string, serviceNo string) (BusArrival, error) {
-	req, err := http.NewRequest("GET", c.Endpoint+"/BusArrivalv2", nil)
+	req, err := http.NewRequest("GET", c.Endpoint+"/v3/BusArrival", nil)
 	if err != nil {
 		return BusArrival{}, err
 	}

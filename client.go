@@ -6,7 +6,7 @@ import (
 
 // The current LTA DataMall endpoint
 const (
-	Endpoint = "http://datamall2.mytransport.sg/ltaodataservice"
+	Endpoint = "https://datamall2.mytransport.sg/ltaodataservice"
 )
 
 // HTTPClient is an interface satisfied by *http.Client.
